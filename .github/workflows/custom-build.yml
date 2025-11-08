@@ -27,5 +27,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
 
-      - name: Run tests with tox
-        run: tox
+      - name: Run tests with tox (show full pytest output)
+        run: |
+          tox -- -v --maxfail=5 --tb=long
